@@ -4,7 +4,7 @@ import smtplib
 data_path = "data.csv"
 data = pandas.read_csv(data_path)
 
-def send_mail(msg,receiver):
+def send_mail(message,receiver):
         try:
             # creates SMTP session
             s = smtplib.SMTP('smtp.gmail.com', 587)
@@ -15,11 +15,8 @@ def send_mail(msg,receiver):
             # Authentication
             s.login("actemp22@gmail.com", "atempaccount99")
             
-            # message to be sent
-            message = msg
-            
             # sending the mail
-            s.sendmail("actemp22@gmail.com", receiver, msg)
+            s.sendmail("actemp22@gmail.com", receiver, message)
             
             print(f"[+] Successfully sent email to {receiver}")
 
